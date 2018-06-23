@@ -1,0 +1,14 @@
+{
+    "name": "projectgn/lightbreak-framwork",
+    "description": "PHP MVC Framework",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Bonlawit Butsabong",
+            "email": "soghband@gmail.com"
+        }
+    ],
+    "require": {
+        "matthiasmullie/minify": "^1.3"
+    }
+}

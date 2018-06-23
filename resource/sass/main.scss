@@ -1,0 +1,12 @@
+#content {
+    padding: 15px;
+    min-height: calc(100vh - 114px);
+    max-width: calc(100vw - 30px);
+    overflow-x: hidden;
+}
+tr > th{
+    text-align: center !important;
+    background: lightblue;
+    vertical-align: middle !important;
+
+}

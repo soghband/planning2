@@ -1,0 +1,26 @@
+<form id="pjGasCalcForm" action="/actionLogin/" method="post" enctype="multipart/form-data"
+      class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-4">User Name</label>
+        <div class="col-sm-4">
+            <input type="textbox" id="txtUserName" name="txtUserName" class="form-control number required"/>
+            <div class="help-block with-errors">
+                <ul class="list-unstyled"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4">Password</label>
+        <div class="col-sm-4">
+            <input type="password" id="txtPassword" name="txtPassword" class="form-control number required"/>
+            <div class="help-block with-errors">
+                <ul class="list-unstyled"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-8">
+            <button type="submit" class="btn btn-primary" name="btnLogin">Login</button>
+        </div>
+    </div>
+</form>

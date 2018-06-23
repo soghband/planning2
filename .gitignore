@@ -1,0 +1,12 @@
+.idea/
+/composer.phar
+/vendor/
+/composer.lock
+/cache_file/*
+/public/css/*
+/public/images/*
+/public/js/*
+/dev/node_modules/
+dev/node_modules/
+dev/package-lock.json
+/dev/package-lock.json

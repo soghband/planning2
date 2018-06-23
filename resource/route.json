@@ -1,0 +1,33 @@
+{
+    "": {
+        "controller":"index"
+    },
+    "login": {
+        "controller": "login"
+    },
+    "actionLogin": {
+        "controller": "actionLogin",
+        "param_filter":{
+            "txtUserName":"^[a-zA-Z0-9]*$"
+        }
+    },
+    "actionLogout": {
+        "controller": "actionLogout"
+    },
+    "addTask": {
+        "controller": "addTask"
+    },
+    "actionAdd": {
+        "controller": "actionAdd"
+    },
+    "editTask/{tno}/{spno}": {
+        "controller": "editTask",
+        "url_filter":{
+            "{tno}": "^[0-9]*$",
+            "{spno}": "^[0-9]*$"
+        }
+    },
+    "actionEdit": {
+        "controller": "actionEdit"
+    }
+}
