@@ -32,5 +32,8 @@
             "type":"(startTask|endTask)",
             "time":"^[0-9.]*$"
         }
+    },
+    "export": {
+        "controller": "export"
     }
 }
