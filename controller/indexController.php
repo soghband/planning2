@@ -1,6 +1,7 @@
 <?php
 View::addJS("indexPage");
 View::setCachePage(false);
+View::addCSS("indexPage");
 require("connectDB.php");
 require("utils.php");
 require("checksession.php");
@@ -253,7 +254,7 @@ if (isset($_POST['btnSearch'])) {
         <table class="table table-hover table-bordered" id="group_table" style="width: 800px">
             <thead runat="server" id="headerGrid">
             <tr>
-                <th></th>
+                <th>Action</th>
                 <!-- 	                  		  <th>Sprint</th>
                                             <th>Servie Name</th> -->
                 <th>No.</th>
@@ -279,6 +280,7 @@ if (isset($_POST['btnSearch'])) {
 													ts.sprint_no,
 													serv.param_value_name AS service_name,
 													tt.task_no,
+													tt.sprint_id,
 													task.param_value_name AS task_type,
 													zone.param_value_name AS zone,
 													modu.param_value_name AS module,
@@ -317,6 +319,13 @@ if (isset($_POST['btnSearch'])) {
                 <tr>
                     <td>
                         <a href="editTask/<?= $rowTask['task_no'] ?>/<?= $rowTask['sprint_no'] ?>">Edit</a>
+                        <?php
+                            if ($rowTask['start_datetime'] == "") {
+                                echo "<div id='stBtn_".$rowTask['task_no']."_".$rowTask['sprint_id']."' class='startTime' task_no='".$rowTask['task_no']."'  sprint_id='".$rowTask['sprint_id']."' onclick='updateStartTime(this)'>Start</div>";
+                            } else if ($rowTask['end_datetime'] == "") {
+                                echo "<div  id='enBtn_".$rowTask['task_no']."_".$rowTask['sprint_id']."' class='endTime' task_no='".$rowTask['task_no']."'  sprint_id='".$rowTask['sprint_id']."' onclick='updateEndTime(this)'>End</div>";
+                            }
+                        ?>
                     </td>
 
                     <!--                         <td style="text-align:center;">
@@ -343,7 +352,7 @@ if (isset($_POST['btnSearch'])) {
                     <td width="100px">
                         <?= $rowTask['task_detail'] ?>
                     </td>
-                    <td width="50px">
+                    <td width="50px"  id="status_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id']?>" >
                         <?= $rowTask['status'] ?>
                     </td>
                     <td width="50px">
@@ -355,19 +364,18 @@ if (isset($_POST['btnSearch'])) {
                     <td width="30px">
                         <?= $rowTask['json'] ?>
                     </td>
-                    <td width="30px">
+                    <td width="30px" id="esTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">
                         <?= $rowTask['estimate_manhours'] ?>
                     </td>
                     <td width="30px">
                         <?= $rowTask['actual_manhours'] ?>
                     </td>
-                    <td width="60px">
+                    <td width="60px"  id="startTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">
                         <?= $rowTask['start_datetime'] ?>
                     </td>
-                    <td width="60px">
+                    <td width="60px"  id="endTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">
                         <?= $rowTask['end_datetime'] ?>
                     </td>
-
                     <td width="60px">
                         <?= $rowTask['remark'] ?>
                     </td>

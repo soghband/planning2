@@ -1,0 +1,25 @@
+#Tbody1 .startTime {
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: inline-block;
+  background: #d25954;
+  color: #FFF;
+  cursor: pointer;
+  margin: 2px; }
+#Tbody1 .endTime {
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: inline-block;
+  background: #2aabd2;
+  color: #FFF;
+  cursor: pointer;
+  margin: 2px; }
+#Tbody1 a {
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: inline-block;
+  background: #d29837;
+  color: #FFF;
+  cursor: pointer;
+  margin: 2px;
+  text-decoration: none; }

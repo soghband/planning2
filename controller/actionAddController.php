@@ -8,7 +8,7 @@ if(isset($_POST['btnAddTask'])){
     $queryTaskNo  = mysqli_query($conn,$getTaskNoSql);
     $rowTaskNo = mysqli_fetch_assoc($queryTaskNo);
 
-    $update = [];
+    $update = Array();
     array_push($update , "task_running = ". $rowTaskNo['task_no']);
 
     $sql = "UPDATE trn_sprint SET  " . implode(",", $update) . " WHERE sprint_id = " . $_POST['txtSprintNo'];

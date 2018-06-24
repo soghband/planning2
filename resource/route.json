@@ -6,10 +6,7 @@
         "controller": "login"
     },
     "actionLogin": {
-        "controller": "actionLogin",
-        "param_filter":{
-            "txtUserName":"^[a-zA-Z0-9]*$"
-        }
+        "controller": "actionLogin"
     },
     "actionLogout": {
         "controller": "actionLogout"
@@ -27,7 +24,13 @@
             "{spno}": "^[0-9]*$"
         }
     },
-    "actionEdit": {
-        "controller": "actionEdit"
+    "quickAction": {
+        "controller": "quickAction",
+        "param_filter": {
+            "taskNo":"^[0-9]*$",
+            "sprintId":"^[0-9]*$",
+            "type":"(startTask|endTask)",
+            "time":"^[0-9.]*$"
+        }
     }
 }

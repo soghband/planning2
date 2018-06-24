@@ -5,11 +5,12 @@
     "JS_COMPRESS":true,
     "CSS_PATH":"resource/sass",
     "CSS_COMPRESS":true,
-    "DEFAULT_TITLE":"LightBreak Framework",
+    "DEFAULT_TITLE":"Task Scrum Room: Planning2",
     "RAW_IMAGE_PATH":"resource/images",
-    "ENABLE_DEV_IO":false,
+    "ENABLE_DEV_IO":true,
     "JPG_QUALITY":85,
     "PNG_COMPRESS_LEVEL":6,
     "SESSION_SECURE":false,
-    "BY_PASS_UNSPECIFIED_PARAMETER":true
+    "BY_PASS_UNSPECIFIED_PARAMETER":true,
+    "TIME_ZONE":"Asia/Bangkok"
 }

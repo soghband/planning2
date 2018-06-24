@@ -6,7 +6,7 @@ require("checksession.php");
 if (isset($_POST['btnEditTask'])) {
     $update = "";
 
-    $update = [];
+    $update = Array();
     array_push($update, "sprint_id = '" . $_POST['txtSprintNo'] . "'");
     array_push($update, "task_type_id = '" . $_POST['ddlTaskType'] . "'");
     array_push($update, "task_zone_id = '" . $_POST['ddlZone'] . "'");
