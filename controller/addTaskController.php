@@ -36,7 +36,7 @@ View::addJS("addTask");
                     $querySrpintNo = mysqli_query($conn,$getSrpintNoSql);
                     while ($rowSprintNo = mysqli_fetch_assoc($querySrpintNo)) {
                         $checked = '';
-                        if ($rowSprintNo['sprint_no'] == '12') {
+                        if ($rowSprintNo['sprint_no'] == '13') {
                             $checked = 'selected';
                             $selectedValue = $rowSprintNo['sprint_id'];
                         }
