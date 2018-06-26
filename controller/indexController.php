@@ -8,8 +8,8 @@ require("utils.php");
 require("checksession.php");
 $whereCause = '';
 
-$serviceValue = '13';
-$sprintValue = '1';
+$serviceValue = '12';
+$sprintValue = '3';
 $moduleValue = '0';
 $taskTypeValue = '0';
 $zoneValue = '0';
