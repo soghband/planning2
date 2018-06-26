@@ -295,7 +295,7 @@ if (isset($tno) && isset($spno)) {
                         if ($rowUser['user_id'] == $rowTask['user_id'])
                             $checked = 'selected';
                         ?>
-                        <option <?= $checked ?> value="<?= $rowUser['user_id'] ?>"><?= $rowUser['user_name'] ?></option>
+                        <option <?= $checked ?> value="<?= $rowUser['user_id'] ?>"><?= $rowUser['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>

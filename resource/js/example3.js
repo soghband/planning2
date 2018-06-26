@@ -1,1 +1,0 @@
-console.log("Example java 3");

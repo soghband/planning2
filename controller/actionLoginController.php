@@ -15,6 +15,7 @@ if ($getuserCount == 0) {
     $getUserRow = mysqlI_fetch_assoc($getUserQuery);
     if ($getUserRow['password'] == createPasswordHash($_POST['txtPassword'])) {
         $_SESSION['USER'] = $_POST['txtUserName'];
+        $_SESSION['FIRST_NAME'] = $getUserRow['name'];
         $_SESSION['USER_ID'] = $getUserRow['user_id'];
         echo '<script type="text/javascript">
 				window.location.href = "/";

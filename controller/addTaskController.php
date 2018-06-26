@@ -196,7 +196,7 @@ View::addJS("addTask");
                     $queryUser = mysqli_query($conn,$getUserSql);
                     while ($rowUser = mysqli_fetch_assoc($queryUser)) {
                         ?>
-                        <option value="<?= $rowUser['user_id'] ?>"><?= $rowUser['user_name'] ?></option>
+                        <option value="<?= $rowUser['user_id'] ?>"><?= $rowUser['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>

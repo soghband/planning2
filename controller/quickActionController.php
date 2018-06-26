@@ -12,7 +12,7 @@ if (isset($_SESSION['USER'])) {
     if  ($type == "startTask") {
         $updateQuery = "UPDATE trn_task SET start_datetime=NOW(),action_by=".$userId.",status=27 WHERE  task_no=$taskNo AND sprint_id=$sprintId";
     } else if ($type == "endTask") {
-        $updateQuery = "UPDATE trn_task SET end_datetime=NOW(),estimate_manhours=".$time.",status=28 WHERE  task_no=$taskNo AND sprint_id=$sprintId";;
+        $updateQuery = "UPDATE trn_task SET end_datetime=NOW(),actual_manhours=".$time.",status=28 WHERE  task_no=$taskNo AND sprint_id=$sprintId";;
     }
     $result = mysqli_query($conn,$updateQuery);
     $json["taskNo"] = $taskNo;
@@ -20,6 +20,7 @@ if (isset($_SESSION['USER'])) {
     $json["type"] = $type;
     $json["query"] = $updateQuery;
     $json["time"] = $currentTime;
+    $json["username"] = $_SESSION['FIRST_NAME'];
     $json["esTime"] = number_format($time,2);
     $json["status"] = ($result == true ? "success" : "fail");
     echo json_encode($json);

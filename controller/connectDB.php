@@ -12,7 +12,7 @@
         }
 		$dbuname = 'projectg_planning2';
 		$dbpass = 'planning2!@#';
-		$dbname = 'projectg_p2Test';
+		$dbname = 'projectg_planning2';
 		
 		$conn = mysqli_connect($dbhost, $dbuname, $dbpass);
 		//if(!$conn)

@@ -24,7 +24,7 @@ function updateStartTime(element) {
 }
 
 function updateEndTime(element) {
-    var time = prompt("Estimate Manhours:", "");
+    var time = prompt("Actual Manhours:", "");
     if (time != null && time.match(/^(\d|.)*$/) && time > 0) {
         var taskNo = $(element).attr("task_no");
         var sprintId = $(element).attr("sprint_id");
@@ -65,6 +65,8 @@ function startSuccessProcess(data){
     startTimeCell.html(data.time);
     var statusCell = $("#status_"+data.taskNo+"_"+data.sprintId);
     statusCell.html("Doing");
+    var actionByCell = $("#actionBy_"+data.taskNo+"_"+data.sprintId);
+    actionByCell.html(data.username);
     var endBtn = $("<div>");
     endBtn.attr("id","enBtn_"+data.taskNo+"_"+data.sprintId);
     endBtn.attr("class","endTime");
@@ -82,6 +84,6 @@ function endSuccessProcess(data){
     startTimeCell.html(data.time);
     var statusCell = $("#status_"+data.taskNo+"_"+data.sprintId);
     statusCell.html("Done");
-    var esTimeCell = $("#esTime_"+data.taskNo+"_"+data.sprintId);
+    var esTimeCell = $("#actTime_"+data.taskNo+"_"+data.sprintId);
     esTimeCell.html(data.esTime);
 }

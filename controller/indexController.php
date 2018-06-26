@@ -1,4 +1,5 @@
 <?php
+
 View::addJS("indexPage");
 View::setCachePage(false);
 View::addCSS("indexPage");
@@ -17,50 +18,50 @@ $statusValue = '0';
 $priorityValue = '';
 $minValue = '';
 $maxValue = '';
-if (isset($_POST['btnSearch'])) {
+if (isset($_REQUEST['btnSearch'])) {
     $whereCause = '';
-    if ($_POST['ddlServiceName'] != 0) {
-        $whereCause .= " and ts.service_name_id = '" . $_POST['ddlServiceName'] . "'";
-        $serviceValue = $_POST['ddlServiceName'];
+    if ($_REQUEST['ddlServiceName'] != 0) {
+        $whereCause .= " and ts.service_name_id = '" . $_REQUEST['ddlServiceName'] . "'";
+        $serviceValue = $_REQUEST['ddlServiceName'];
     }
 
-    if ($_POST['ddlSprintNo'] != 0) {
-        $whereCause .= " and tt.sprint_id = '" . $_POST['ddlSprintNo'] . "'";
-        $sprintValue = $_POST['ddlSprintNo'];
+    if ($_REQUEST['ddlSprintNo'] != 0) {
+        $whereCause .= " and tt.sprint_id = '" . $_REQUEST['ddlSprintNo'] . "'";
+        $sprintValue = $_REQUEST['ddlSprintNo'];
     }
 
-    if ($_POST['ddlModule'] != 0) {
-        $whereCause .= " and tt.module_id = '" . $_POST['ddlModule'] . "'";
-        $moduleValue = $_POST['ddlModule'];
+    if ($_REQUEST['ddlModule'] != 0) {
+        $whereCause .= " and tt.module_id = '" . $_REQUEST['ddlModule'] . "'";
+        $moduleValue = $_REQUEST['ddlModule'];
     }
 
-    if ($_POST['ddlTaskType'] != 0) {
-        $whereCause .= " and tt.task_type_id = '" . $_POST['ddlTaskType'] . "'";
-        $taskTypeValue = $_POST['ddlTaskType'];
+    if ($_REQUEST['ddlTaskType'] != 0) {
+        $whereCause .= " and tt.task_type_id = '" . $_REQUEST['ddlTaskType'] . "'";
+        $taskTypeValue = $_REQUEST['ddlTaskType'];
     }
 
-    if ($_POST['ddlZone'] != 0) {
-        $whereCause .= " and tt.task_zone_id = '" . $_POST['ddlZone'] . "'";
-        $zoneValue = $_POST['ddlZone'];
+    if ($_REQUEST['ddlZone'] != 0) {
+        $whereCause .= " and tt.task_zone_id = '" . $_REQUEST['ddlZone'] . "'";
+        $zoneValue = $_REQUEST['ddlZone'];
     }
 
-    if ($_POST['ddlActionBy'] != 0) {
-        $whereCause .= " and tt.action_by = '" . $_POST['ddlActionBy'] . "'";
-        $actionValue = $_POST['ddlActionBy'];
+    if ($_REQUEST['ddlActionBy'] != 0) {
+        $whereCause .= " and tt.action_by = '" . $_REQUEST['ddlActionBy'] . "'";
+        $actionValue = $_REQUEST['ddlActionBy'];
     }
 
-    if ($_POST['ddlStatus'] != 0) {
-        $whereCause .= " and tt.status = '" . $_POST['ddlStatus'] . "'";
-        $statusValue = $_POST['ddlStatus'];
+    if ($_REQUEST['ddlStatus'] != 0) {
+        $whereCause .= " and tt.status = '" . $_REQUEST['ddlStatus'] . "'";
+        $statusValue = $_REQUEST['ddlStatus'];
     }
-    if ($_POST['txtPriority'] != '') {
-        $whereCause .= " and tt.priority = '" . $_POST['txtPriority'] . "'";
-        $priorityValue = $_POST['txtPriority'];
+    if ($_REQUEST['txtPriority'] != '') {
+        $whereCause .= " and tt.priority = '" . $_REQUEST['txtPriority'] . "'";
+        $priorityValue = $_REQUEST['txtPriority'];
     }
-    if ($_POST['txtMin'] != '' && $_POST['txtMax'] != '') {
-        $whereCause .= " and tt.task_no BETWEEN " . $_POST['txtMin'] . " and " . $_POST['txtMax'];
-        $minValue = $_POST['txtMin'];
-        $maxValue = $_POST['txtMax'];
+    if ($_REQUEST['txtMin'] != '' && $_REQUEST['txtMax'] != '') {
+        $whereCause .= " and tt.task_no BETWEEN " . $_REQUEST['txtMin'] . " and " . $_REQUEST['txtMax'];
+        $minValue = $_REQUEST['txtMin'];
+        $maxValue = $_REQUEST['txtMax'];
     }
 } else {
     $whereCause .= " and ts.service_name_id = " . $serviceValue;
@@ -71,15 +72,15 @@ if (isset($_POST['btnSearch'])) {
 
 
 <div id="pjGasCalcContainer" class="container">
-    <form id="logoutForm" action="/actionLogout/" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form id="logoutForm" action="/actionLogout/" method="post" class="form-horizontal">
         <div style="margin-top: 0.5em;text-align: right;">
-            <span style="padding-right:0.5em ">สวัสดีคุณ <?= $_SESSION['USER'] ?></span>
+            <span style="padding-right:0.5em ">สวัสดีคุณ <?= $_SESSION['FIRST_NAME'] ?></span>
             <button type="submit" name="btnLogout" class="btn btn-primary" style="float: right;">Logout</button>
         </div>
     </form>
     <h2 class="text-center">Task List</h2>
     <br>
-    <form id="pjGasCalcForm" action="?" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form id="pjGasCalcForm" action="/home" method="post" class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-sm-2">Service Name</label>
             <div class="col-sm-3">
@@ -190,7 +191,7 @@ if (isset($_POST['btnSearch'])) {
                             $checked = 'selected';
                         }
                         ?>
-                        <option <?= $checked ?> value="<?= $rowUser['user_id'] ?>"><?= $rowUser['user_name'] ?></option>
+                        <option <?= $checked ?> value="<?= $rowUser['user_id'] ?>"><?= $rowUser['name'] ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -292,7 +293,7 @@ if (isset($_POST['btnSearch'])) {
 												 tt.actual_manhours,
 												 tt.start_datetime,
 												 tt.end_datetime,
-												 up.user_name AS action_by,
+												 up.name AS action_by,
 												 stt.param_value_name AS status,
 												 tt.remark,
 												 tt.create_date,
@@ -310,8 +311,8 @@ if (isset($_POST['btnSearch'])) {
 												LEFT OUTER JOIN user_profile up ON tt.action_by = up.user_id 
 											 WHERE 1=1 ";
             $getTaskQuerySql .= $whereCause;
-            // ts.service_name_id =  ". $_POST['ddlServiceName']
-            // 		." and tt.sprint_id = ". $_POST['txtSprintNo'];
+            // ts.service_name_id =  ". $_REQUEST['ddlServiceName']
+            // 		." and tt.sprint_id = ". $_REQUEST['txtSprintNo'];
             $queryTaskQuery = mysqli_query($conn, $getTaskQuerySql);
             while ($rowTask = mysqli_fetch_assoc($queryTaskQuery)) {
                 ?>
@@ -355,7 +356,7 @@ if (isset($_POST['btnSearch'])) {
                     <td width="50px"  id="status_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id']?>" >
                         <?= $rowTask['status'] ?>
                     </td>
-                    <td width="50px">
+                    <td width="50px" id="actionBy_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id']?>" >
                         <?= $rowTask['action_by'] ?>
                     </td>
                     <td width="30px">
@@ -364,10 +365,10 @@ if (isset($_POST['btnSearch'])) {
                     <td width="30px">
                         <?= $rowTask['json'] ?>
                     </td>
-                    <td width="30px" id="esTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">
+                    <td width="30px">
                         <?= $rowTask['estimate_manhours'] ?>
                     </td>
-                    <td width="30px">
+                    <td width="30px" id="actTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">
                         <?= $rowTask['actual_manhours'] ?>
                     </td>
                     <td width="60px"  id="startTime_<?=$rowTask['task_no']?>_<?= $rowTask['sprint_id'] ?>">

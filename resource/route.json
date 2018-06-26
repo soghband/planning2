@@ -1,5 +1,8 @@
 {
     "": {
+        "controller":"redirect"
+    },
+    "home": {
         "controller":"index"
     },
     "login": {
