@@ -11,7 +11,7 @@ if (isset($_POST['btnEditTask'])) {
     array_push($update, "task_type_id = '" . $_POST['ddlTaskType'] . "'");
     array_push($update, "task_zone_id = '" . $_POST['ddlZone'] . "'");
     array_push($update, "module_id = '" . $_POST['ddlModule'] . "'");
-    array_push($update, "task_detail = '" . $_POST['taskDetails'] . "'");
+    array_push($update, "task_detail = '" . str_replace(array("'"),array("\\'"),$_POST['taskDetails']) . "'");
     array_push($update, "script_database = '" . $_POST['ddlDBScript'] . "'");
     array_push($update, "json = '" . $_POST['ddlJson'] . "'");
     array_push($update, "estimate_manhours = '" . $_POST['txtEstMan'] . "'");

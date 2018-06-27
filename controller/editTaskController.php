@@ -56,7 +56,7 @@ if (isset($tno) && isset($spno)) {
 <div id="pjGasCalcContainer" class="container">
     <h2 class="text-center">Edit Task</h2>
 
-    <form id="pjGasCalcForm" action="/actionEdit/" method="post" enctype="multipart/form-data"
+    <form id="pjGasCalcForm" action="/actionEdit" method="post"
           class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-sm-2">Service Name</label>

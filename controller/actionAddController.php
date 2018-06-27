@@ -22,7 +22,8 @@ if(isset($_POST['btnAddTask'])){
     $insert['task_type_id'] = "'" .$_POST['ddlTaskType']  . "'";
     $insert['task_zone_id'] = "'". $_POST['ddlZone']."'";
     $insert['module_id'] = "'". $_POST['ddlModule']."'";
-    $insert['task_detail'] = "'". $_POST['taskDetails']."'";
+    $insert['task_detail'] = "'". str_replace(array("'"),array("\\'"),$_POST['taskDetails'])."'";
+
     $insert['script_database'] = "'". $_POST['ddlDBScript']."'";
     $insert['json'] = "'". $_POST['ddlJson']."'";
     $insert['estimate_manhours'] = "'". $_POST['txtEstMan']."'";

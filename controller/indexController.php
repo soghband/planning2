@@ -311,6 +311,7 @@ if (isset($_REQUEST['btnSearch'])) {
 												LEFT OUTER JOIN user_profile up ON tt.action_by = up.user_id 
 											 WHERE 1=1 ";
             $getTaskQuerySql .= $whereCause;
+            $getTaskQuerySql .= " ORDER  BY Field(stt.param_value_name,'Doing' , 'To Do','Done','Cancel'),tt.task_no,  priority ASC";
             // ts.service_name_id =  ". $_REQUEST['ddlServiceName']
             // 		." and tt.sprint_id = ". $_REQUEST['txtSprintNo'];
             $queryTaskQuery = mysqli_query($conn, $getTaskQuerySql);

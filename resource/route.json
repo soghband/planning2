@@ -27,6 +27,9 @@
             "{spno}": "^[0-9]*$"
         }
     },
+    "actionEdit": {
+        "controller": "actionEdit"
+    },
     "quickAction": {
         "controller": "quickAction",
         "param_filter": {
