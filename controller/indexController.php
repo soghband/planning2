@@ -9,7 +9,7 @@ require("checksession.php");
 $whereCause = '';
 
 $serviceValue = '12';
-$sprintValue = '1';
+$sprintValue = '3';
 $moduleValue = '0';
 $taskTypeValue = '0';
 $zoneValue = '0';
